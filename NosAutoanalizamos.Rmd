@@ -19,14 +19,30 @@ When you click the **Knit** button a document will be generated that includes bo
 library(readr)
 datos <- read_delim("data/NosAutoanalizamos2024 - Hoja1.tsv", delim = "\t", escape_double = FALSE, trim_ws = TRUE, skip=25)
 str(datos)
+
+unique(datos$Sex)
+View(datos)
+datos$Wr.Hnd
+unique(datos$NW.Hnd)
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
+#Vemos las estructuras de los datos
+```{r}
+str(datos)
+VarFactor <- c("Id", "Sex", "NW.Hnd", "fold")
+VarNum <- c("Age", "Wr.Hnd", "Pulse", "Exer", "Height", "ALG", "ANM", "FP", "DCS", "MD", "Hst", "Hwork")
+VarFecha <- c("FechaNac(DD-MM-YYY")
+VarTexto <- "Comentarios"
+datos <- datos[(1:nrow(datos)-1),]
+```
+
+
+Analizo las categorias de las variables de tipo factor
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+#sapply(datos[,VarFactor],unique)
+
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
